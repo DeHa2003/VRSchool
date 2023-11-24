@@ -7687,7 +7687,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c57a6d17c748e440a477574aaf1ce0e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 15f95fae3da86244d8aad16a39318a01, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -13236,7 +13236,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c57a6d17c748e440a477574aaf1ce0e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 15f95fae3da86244d8aad16a39318a01, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -32184,6 +32184,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 876289919302540865, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: menuControl
+      value: 
+      objectReference: {fileID: 1902962923}
     - target: {fileID: 2255678769519029092, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
       propertyPath: posMenu
@@ -32208,6 +32213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: timeSpawn
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255678769519029092, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: steamMenu.actionPath
+      value: /actions/default/in/Menu
       objectReference: {fileID: 0}
     - target: {fileID: 2813519855149325939, guid: dc06161b6d97feb419f45f03b62e14b9,
         type: 3}
@@ -32256,6 +32266,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+--- !u!114 &1902962923 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2255678769519029092, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1902962922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725261091b60819409f59c37d8b6b76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1902962927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9,

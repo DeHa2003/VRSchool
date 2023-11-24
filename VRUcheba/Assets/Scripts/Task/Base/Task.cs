@@ -6,6 +6,12 @@ public class Task : MonoBehaviour
 {
     [SerializeField] protected List<GameObject> VRObjects;
     [SerializeField] protected DiactivateVRObject diactivateObjs;
+
+    private TaskUIManager manager;
+    protected void Awake()
+    {
+        manager = FindObjectOfType<TaskUIManager>();
+    }
     public virtual void CompletedTask()
     {
         foreach (var item in VRObjects)
@@ -14,9 +20,13 @@ public class Task : MonoBehaviour
             Destroy(item);
         }
 
-        TaskUIManager taskManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<TaskUIManager>();
-        taskManager.Congratulations();
+        manager.Congratulations();
 
         Destroy(gameObject);
+    }
+
+    public virtual void CancelTask()
+    {
+        manager.CancelTask();
     }
 }

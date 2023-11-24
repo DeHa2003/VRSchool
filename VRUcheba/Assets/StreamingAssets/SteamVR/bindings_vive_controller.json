@@ -227,7 +227,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/laser"
+                     "output" : "/actions/default/in/menu"
                   }
                },
                "mode" : "button",
@@ -278,7 +278,7 @@
    },
    "category" : "steamvr_input",
    "controller_type" : "vive_controller",
-   "description" : "ver 0.1.2",
+   "description" : "ver 0.1.1",
    "interaction_profile" : "",
    "name" : "VRUcheba",
    "options" : {},

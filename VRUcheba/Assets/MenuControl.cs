@@ -2,10 +2,13 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class MenuControl : MonoBehaviour
 {
     public GameObject menu { get; private set; }
+
+    [SerializeField] private SteamVR_Action_Boolean steamMenu;
 
     [SerializeField] private float timeSpawn;
     [SerializeField] private GameObject menuPref;
@@ -16,40 +19,40 @@ public class MenuControl : MonoBehaviour
     {
         menu = null;
     }
-    private void OnEnable()
-    {
-        LaserControl.OnActivateLaser += InstantiateMenuPanel;
-        LaserControl.OnDiactivateLaser += DeleteMenuPanel;
-    }
 
-    private void OnDisable()
+    public void InstantiateMenuPanel()
     {
-        LaserControl.OnActivateLaser -= InstantiateMenuPanel;
-        LaserControl.OnDiactivateLaser -= DeleteMenuPanel;
-    }
+        AudioManager.instance.PlaySound("OpenMenu");
 
-    private void InstantiateMenuPanel()
-    {
-        if (menu == null)
-        {
-            AudioManager.instance.PlaySound("OpenMenu");
-
-            menu = Instantiate(menuPref, posSpawn.position, posSpawn.rotation);
-            menu.transform.DOMove(posMenu.position, timeSpawn);
-            menu.transform.DOScale(0.01f, timeSpawn);
-        }
+        menu = Instantiate(menuPref, posSpawn.position, posSpawn.rotation);
+        menu.transform.DOMove(posMenu.position, timeSpawn);
+        menu.transform.DOScale(0.01f, timeSpawn);
     }
 
     public void DeleteMenuPanel()
     {
-        if (menu != null)
-        {
-            AudioManager.instance.PlaySound("CloseMenu");
+        AudioManager.instance.PlaySound("CloseMenu");
 
-            menu.transform.DOScale(0f, timeSpawn);
-            menu.transform.DOMove(posDelete.position, timeSpawn).OnComplete(() => {
-                Destroy(menu);
-            });
+        menu.transform.DOScale(0f, timeSpawn);
+        menu.transform.
+            DOMove(posDelete.position, timeSpawn).
+            OnComplete(() => {
+            Destroy(menu);
+        });
+    }
+
+    public void MenuControlling()
+    {
+        if (steamMenu.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            if (menu == null)
+            {
+                InstantiateMenuPanel();
+            }
+            else if(menu != null)
+            {
+                DeleteMenuPanel();
+            }
         }
     }
 }

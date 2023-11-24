@@ -8,9 +8,10 @@ public class LaserControl : MonoBehaviour
 {
     public static Action OnActivateLaser;
     public static Action OnDiactivateLaser;
-
+    [SerializeField] MenuControl menuControl;
     [SerializeField] SteamVR_Action_Boolean steamLaser;
     [SerializeField] private List<GameObject> hands;
+
 
     private bool isActiveLaser = false;
 
@@ -42,12 +43,18 @@ public class LaserControl : MonoBehaviour
 
     private void Update()
     {
-        if (steamLaser.GetStateDown(SteamVR_Input_Sources.Any) && !isActiveLaser)
+        menuControl.MenuControlling();
+        LaserControlling();
+    }
+
+    private void LaserControlling()
+    {
+        if (steamLaser.GetStateDown(SteamVR_Input_Sources.LeftHand) && !isActiveLaser)
         {
             OnActivateLaser?.Invoke();
             AddLaserPointer();
         }
-        else if (steamLaser.GetStateDown(SteamVR_Input_Sources.Any) && isActiveLaser)
+        else if (steamLaser.GetStateDown(SteamVR_Input_Sources.LeftHand) && isActiveLaser)
         {
             OnDiactivateLaser?.Invoke();
             RemoveLaserPointer();

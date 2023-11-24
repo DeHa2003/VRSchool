@@ -24,9 +24,6 @@ public class Score : MonoBehaviour
 
         if (ScoreCount == maxscore)
         {
-            //AudioManager.instance.PlaySounds(TypeAudio.CompletedGame);
-
-
             task.CompletedTask();
         }
     }
