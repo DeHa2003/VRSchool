@@ -11,9 +11,9 @@ public class PlayerFeetSound : MonoBehaviour
     [SerializeField] private AudioClip streetWalk;
     [SerializeField] private AudioClip threeWalk;
     [Header("Dependence pitch")]
-    [SerializeField] private float roomWalkPitch = 1.3f;
-    [SerializeField] private float streetWalkPitch = 1.4f;
-    [SerializeField] private float threeWalkPitch = 1.5f;
+    [SerializeField] private float roomWalkPitch;
+    [SerializeField] private float streetWalkPitch;
+    [SerializeField] private float threeWalkPitch;
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {

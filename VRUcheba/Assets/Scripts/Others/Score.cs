@@ -27,4 +27,9 @@ public class Score : MonoBehaviour
             task.CompletedTask();
         }
     }
+
+    public virtual void Decrease(int value)
+    {
+
+    }
 }

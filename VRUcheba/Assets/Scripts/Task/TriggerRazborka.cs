@@ -20,14 +20,14 @@ public class TriggerRazborka : MonoBehaviour
         {
             if(score.ScoreCount == numberStepThisObj)
             {
-                error.IncreaseAttempts(1);
+                error.Increase(1);
                 score.Increase();
                 taskDone.TaskDone();
                 Destroy(gameObject);
             }
             else
             {
-                error.ChangeAttempts();
+                error.Decrease(1);
                 other.gameObject.transform.SetPositionAndRotation(transform.position, transform.rotation);
                 diactivateObj.DetachObject(other.gameObject);
             }

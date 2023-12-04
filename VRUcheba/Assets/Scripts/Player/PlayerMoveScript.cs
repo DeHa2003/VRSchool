@@ -12,6 +12,7 @@ public class PlayerMoveScript : MonoBehaviour
 
     [SerializeField] private SteamVR_Action_Vector2 touchpad;
     [SerializeField] private SteamVR_Action_Boolean jump;
+    [SerializeField] private AudioSource source;
 
     private Vector3 vectorToJump;
     private CharacterController characterController;
@@ -29,6 +30,8 @@ public class PlayerMoveScript : MonoBehaviour
 
         if (jump.GetStateDown(SteamVR_Input_Sources.Any) && characterController.isGrounded)
         {
+            source.pitch = Random.Range(1f, 1.5f);
+            source.Play();
             Jumping();
         }
 

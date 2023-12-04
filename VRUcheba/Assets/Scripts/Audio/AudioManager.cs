@@ -27,13 +27,13 @@ public class AudioManager : MonoBehaviour
 
         foreach (var s in sounds)
         {
+            s.audioSource.clip = s.audioClip;
             s.audioSource.volume = s.volume;
             s.audioSource.pitch = s.pitch;
             s.audioSource.loop = s.isLoop;
             s.audioSource.playOnAwake = s.isPlayOnAwake;
             if (s.isPlayOnAwake)
                 s.audioSource.Play();
-            s.audioSource.clip = s.audioClip;
         }
     }
 

@@ -14,9 +14,10 @@ public class Error : MonoBehaviour
         textAttempt.text = attempt.ToString();
     }
 
-    public void ChangeAttempts()
+    public void Decrease(int value)
     {
-        if(attempt > 0)
+        AudioManager.instance.PlaySound("Error");
+        if (attempt > 0)
         {
             attempt -= 1;
             Change();
@@ -29,8 +30,9 @@ public class Error : MonoBehaviour
         }
     }
 
-    public void IncreaseAttempts(int value)
+    public void Increase(int value)
     {
+        AudioManager.instance.PlaySound("Good");
         attempt += value;
         Change();
     }

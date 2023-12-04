@@ -20,6 +20,8 @@ public class Task : MonoBehaviour
             Destroy(item);
         }
 
+        AudioManager.instance.PlaySound("CompletedGame");
+
         manager.Congratulations();
 
         Destroy(gameObject);
@@ -27,6 +29,7 @@ public class Task : MonoBehaviour
 
     public virtual void CancelTask()
     {
+        AudioManager.instance.PlaySound("LooseGame");
         manager.CancelTask();
     }
 }
